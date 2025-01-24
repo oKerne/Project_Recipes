@@ -1,14 +1,15 @@
 import './Home.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import SideMenu from '../Recipr/SideMenu'
 import User from './User';
+import { Outlet } from 'react-router';
 // import { Grid2 as Grid, Typography, Box } from '@mui/material';
 
 
-function Home() {
+const Home: React.FC = () => {
   const [showAllRecipes, setShowAllRecipes] = useState(false)
   const [recipes, setRecipes] = useState<any[]>([])
-
+  const backgroundImage = 'url(../../image/עוגת גבינה.jpg)'
 
   useEffect(() => {
     if (showAllRecipes) {
@@ -28,19 +29,17 @@ function Home() {
   }, [showAllRecipes])
 
   return (
-    <div className="home">
+    <div className="home"style={{ backgroundImage: backgroundImage }}>
       <User />
       <SideMenu userId={1} setShowAllRecipes={setShowAllRecipes} />
-     
-      <div className="content">
+      <Outlet/>
+     {/* <div className="content">
         <h2>מבחר מתכונים</h2>
         <p>באתר תמצאו מגוון רחב של מתכונים, לכל אירוע</p>
         <p>כנסו לקטגוריית "מתכונים" ותהנו משפע מתכונים</p>
-
-       
-      </div>
+      </div>  */}
     </div>
-  );
+  )
 }
 
 export default Home

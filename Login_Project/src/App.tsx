@@ -9,6 +9,7 @@ import AllRecipes from './components/Recipr/AllRecipe';
 
 
 
+
 const App: React.FC = () => {
   const [userId, setUserId] = useState<number | null>(null);
 
@@ -25,13 +26,13 @@ const App: React.FC = () => {
       <UserContext.Provider value={{ state: user, dispatch: dispatchUser }}>
         <BrowserRouter>
           <Routes> 
-           <Route path="/" element={<Home />} />
-           <Route path='/' element={<C/>}> 
+           <Route path="/" element={<Home />} >
+           {/* <Route path='/' element={<C/>}>  */}
             {/* <Route path='/' element={<SideMenu />} />  */}
           
-              <Route path='/recipes' element={<SideMenu />} />
+              <Route path='/recipes' element={<AllRecipes />} />
               <Route path='/add' element={<AddRecipe/>} />
-           </Route>  
+           </Route> 
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

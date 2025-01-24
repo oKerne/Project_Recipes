@@ -1,7 +1,10 @@
 // import { createContext, Dispatch } from "react";
 
+import { createContext, Dispatch } from "react";
+
 
 export type RecipeType = {
+    חומרים(חומרים: any): unknown;
     id: number;
     title: string;
     image?: string,
@@ -27,12 +30,12 @@ const recipeReducer = (state: RecipeType[], action: Action): RecipeType[] => {
 
 export default recipeReducer
 
-// export const initialRecipesState: RecipeType[] = [];
+export const initialRecipesState: RecipeType[] = [];
 
-// export const RecipeContext = createContext<{
-//     state: RecipeType[];
-//     dispatch: Dispatch<Action>;
-// }>({
-//     state: initialRecipesState,
-//     dispatch: () => null,
-// })
+export const RecipeContext = createContext<{
+    state: RecipeType[];
+    dispatch: Dispatch<Action>;
+}>({
+    state: initialRecipesState,
+    dispatch: () => null,
+})

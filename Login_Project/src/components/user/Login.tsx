@@ -100,8 +100,8 @@
                     <Modal
                         open={isLogin || isSignUp}
                         onClose={() => {
-                            setIsLogin(false);
-                            setIsSignUp(false);
+                            setIsLogin(false)
+                            setIsSignUp(false)
                         }}
                     >
                         <Box
