@@ -1,10 +1,7 @@
-// import { createContext, Dispatch } from "react";
-
 import { createContext, Dispatch } from "react";
 
 
 export type RecipeType = {
-    חומרים(חומרים: any): unknown;
     id: number;
     title: string;
     image?: string,

@@ -42,8 +42,6 @@ const AllRecipes: React.FC = () => {
           backgroundColor: "#f0f0f0",
           display: "flex",
           justifyContent: "center",
-          // flexDirection: "column",
-      // justifyContent: "flex-start", 
           alignItems: "center",
           overflowY: "auto",
           paddingTop: 20,
@@ -59,7 +57,6 @@ const AllRecipes: React.FC = () => {
               alt={selectedRecipe.title}
               sx={{
                 marginTop:"100px",
-                
                 //  maxWidth: "80%",
                 //  height: "auto",
               
@@ -149,10 +146,10 @@ const AllRecipes: React.FC = () => {
         </Grid>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default AllRecipes;
+export default AllRecipes
 
 
 

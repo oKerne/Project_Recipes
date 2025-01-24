@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Drawer, Box } from "@mui/material"
 import { Link } from "react-router"
 
-const SideMenu: React.FC = ( { userId, setShowAllRecipes }) => {
+const SideMenu: React.FC = () => {
   const [openDrawer, setOpenDrawer] = useState(false)
   
   const toggleDrawer = () => {
@@ -11,7 +11,7 @@ const SideMenu: React.FC = ( { userId, setShowAllRecipes }) => {
 
   return (
     <>
-      <Box sx={{ display: "flex", height: "100vh" }}>
+      <Box sx={{ display: "flex" }}>
         <Button
           variant="contained"
           onClick={toggleDrawer}

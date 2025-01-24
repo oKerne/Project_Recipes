@@ -1,16 +1,15 @@
-import './Home.css';
+
 import React, { useState, useEffect } from 'react';
 import SideMenu from '../Recipr/SideMenu'
 import User from './User';
-import { Outlet } from 'react-router';
-// import { Grid2 as Grid, Typography, Box } from '@mui/material';
-
+import { Outlet, useLocation } from 'react-router';
+import HomeStyle from './homeStyle';
 
 const Home: React.FC = () => {
   const [showAllRecipes, setShowAllRecipes] = useState(false)
   const [recipes, setRecipes] = useState<any[]>([])
-  const backgroundImage = 'url(../../image/עוגת גבינה.jpg)'
-
+  const location = useLocation();
+  
   useEffect(() => {
     if (showAllRecipes) {
       const fetchRecipes = async () => {
@@ -29,16 +28,15 @@ const Home: React.FC = () => {
   }, [showAllRecipes])
 
   return (
-    <div className="home"style={{ backgroundImage: backgroundImage }}>
+    <>
       <User />
-      <SideMenu userId={1} setShowAllRecipes={setShowAllRecipes} />
+      <SideMenu   />
       <Outlet/>
-     {/* <div className="content">
-        <h2>מבחר מתכונים</h2>
-        <p>באתר תמצאו מגוון רחב של מתכונים, לכל אירוע</p>
-        <p>כנסו לקטגוריית "מתכונים" ותהנו משפע מתכונים</p>
-      </div>  */}
-    </div>
+      {location.pathname === '/' && (
+       <HomeStyle/>
+      )}
+   
+    </> 
   )
 }
 
