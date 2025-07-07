@@ -8,6 +8,8 @@ import { Box, Button, TextField, Typography, Paper } from "@mui/material";
 const UpdateUser = () => {
   const { state: user, dispatch: userDispatch } = useContext(UserContext);
   const [open, setOpen] = useState(false);
+  const baseUrl = import.meta.env.VITE_API_URL;
+
 
   const getInitials = (firstName: string = "", lastName: string = "", email: string = "") => {
     if (firstName && lastName) {
@@ -25,7 +27,7 @@ const UpdateUser = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.put(`http://localhost:3000/api/user`, user, {
+      const res = await axios.put(`${baseUrl}/api/user`, user, {
         headers: {
           "Content-Type": "application/json",
           "user-id": `${user.id}`,

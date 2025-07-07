@@ -30,6 +30,7 @@ const AddRecipe = () => {
       setError("עליך להיות מחובר על מנת להוסיף מתכון.")
       return;
     }
+    const baseUrl = import.meta.env.VITE_API_URL;
 
     const newRecipe = {
       ...formData,
@@ -37,7 +38,7 @@ const AddRecipe = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/recipes/add", {
+      const response = await fetch(`${baseUrl}/api/recipes/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

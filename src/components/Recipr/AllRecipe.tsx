@@ -13,11 +13,12 @@ type RecipeType = {
 const AllRecipes: React.FC = () => {
   const [recipes, setRecipes] = useState<RecipeType[]>([])
   const [selectedRecipe, setSelectedRecipe] = useState<RecipeType | null>(null)
+  const baseUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/recipes")
+        const response = await fetch(`${baseUrl}/api/recipes`)
         if (!response.ok) throw new Error("Failed to fetch recipes")
         const data = await response.json()
         setRecipes(data)

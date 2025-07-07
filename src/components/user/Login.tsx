@@ -6,12 +6,13 @@
         const {state, dispatch: userDispatch } = useContext(UserContext)
         const [isLogin, setIsLogin] = useState(false);
         const [isSignUp, setIsSignUp] = useState(false);
-
         const emailRef = useRef<HTMLInputElement>(null);
         const passwordRef = useRef<HTMLInputElement>(null);
+        const baseUrl = import.meta.env.VITE_API_URL;
+
 
     const handleLogin = async () => {
-            const url = isLogin ? 'http://localhost:3000/api/user/login' : 'http://localhost:3000/api/user/register';
+            const url = isLogin ? `${baseUrl}/api/user/login` : `${baseUrl}/api/user/register`;
 
             // יצירת אובייקט עם הנתונים לשליחה
             const updatedData = {

@@ -9,12 +9,14 @@ const Home: React.FC = () => {
   const [showAllRecipes, setShowAllRecipes] = useState(false)
   const [recipes, setRecipes] = useState<any[]>([])
   const location = useLocation();
-  
+
+  const baseUrl = import.meta.env.VITE_API_URL;
   useEffect(() => {
     if (showAllRecipes) {
       const fetchRecipes = async () => {
         try {
-          const response = await fetch('http://localhost:3000/api/recipes')
+
+          const response = await fetch(`${baseUrl}/api/recipes`)
           if (!response.ok) throw new Error('Failed to fetch recipes')
           const data = await response.json()
           setRecipes(data)
