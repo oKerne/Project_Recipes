@@ -9,10 +9,12 @@
         const emailRef = useRef<HTMLInputElement>(null);
         const passwordRef = useRef<HTMLInputElement>(null);
         const baseUrl = import.meta.env.VITE_API_URL;
-
+        console.log('baseUrl:', baseUrl)
+        const url = `${baseUrl}/api/user/register`;
 
     const handleLogin = async () => {
             const url = isLogin ? `${baseUrl}/api/user/login` : `${baseUrl}/api/user/register`;
+            console.log('URL לבקשה:', url);
 
             // יצירת אובייקט עם הנתונים לשליחה
             const updatedData = {
